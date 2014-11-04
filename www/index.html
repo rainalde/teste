@@ -1,47 +1,91 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
+<html lang="pt">
     <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>UmRei</title>
+        <title>umRei</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="umrei/bootstrap.min.css" rel="stylesheet">
+
+        <!-- jquery -->
+        <script type="text/javascript" src="umrei/jquery.min.js"></script>
+        <script type="text/javascript" src="umrei/bootstrap.min.js"></script>
+
+        <!-- open sans font -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <style>
+            html, body { height: 100%; }
+            #wrap { min-height: 100%; height: auto; margin: 0 auto -60px; padding: 10px 0 0px; text-align: center; }
+            #wrap .box { margin: 0 auto; padding: 10px 0 30px; float: none; width: 400px; border-radius: 5px; background-color: #F7F7F7; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
+            #wrap .box .content-wrap { width: 82%; margin: 0 auto; }
+            #wrap .box h6 { margin: 0 0 30px 0; font-size: 18px; font-weight: 600; }
+            #wrap .box input[type="text"], #wrap .box input[type="password"] { font-size: 15px; height: 40px; margin-bottom: 18px; border-color: #b2bfc7; padding-left: 12px; }
+            #wrap .box input[type="password"] { margin-bottom: 10px; }
+            #wrap .box input:-moz-placeholder { color: #9ba8b6; font-size: 15px; letter-spacing: 0px; font-style: italic; }
+            #wrap .box input:-ms-input-placeholder { color: #9ba8b6; font-style: italic; letter-spacing: 0px; font-size: 15px; }
+            #wrap .box input::-webkit-input-placeholder { color: #9ba8b6; font-style: italic; letter-spacing: 0px; font-size: 15px; }
+            #wrap span { text-align: left; display: block; }
+            #footer { padding-top: 20px; }
+            .container { width: auto; max-width: 680px; padding: 0 15px; }
+            .container .credit { margin: -13px 0; }
+            .banner{ margin-bottom: 45px; }
+            .banner h1 { font-size: 38px; margin-bottom: 15px; }
+            .banner h1 { color: #555555; font-family: 'Open Sans',arial; font-size: 42px; font-weight: 300; margin-bottom: 20px; margin-top: 0; }
+            h1 { color: #262626; font-size: 20px; font-weight: normal; margin: 0 0 15px; }
+            .profile-img { border-radius: 50%; display: block; height: 96px; margin: 0 auto 10px; width: 96px; }
+            /* responsive */
+            @media (max-width: 767px) { #wrap .box { width: 350px; } #wrap { padding: 0px; } }
+            @media (max-width: 480px) { #wrap .box { width: 90%; } #wrap { padding: 0px; } }
+
+            .indicator { display: none; height: 30px; padding: 8px; position: absolute; right: 5px; text-align: center; top: 5px; width: 30px; }
+            .indicator.on { display: block }
+            .input { position: relative; }
+            input { border: 1px solid #ccc; padding: 15px; outline: none; font-size: 16px; height: 20px; color: #777; margin: 0; width: 250px; max-width: 100%; display: block; background: #fff; }
+
+            @font-face {
+                font-family: "Rainalde";
+                src: url("umrei/IndieFlower.eot"); /*somente para o IE*/
+                src: url("umrei/IndieFlower.ttf") format("truetype");
+            }
+        </style>        
     </head>
     <body>
-        Teste
-        <div class="app">
-            <h1>UmRei</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <div id="wrap" style="font-family: Rainalde; font-size: 16px;">
+            <div class="container">
+                <div class="banner">
+                    <img class="logo" src="umrei/logo.png" style="width: 250px;"/>
+                </div>
+                <div class="box">
+                    <form id="form" class="form-signin" action="login" method="post">
+                        <div class="content-wrap">
+                            <img class="profile-img" alt="" src="umrei/foursquare2.png">
+                            <b>
+                                <span><font color="red"><small></small></font><br><br></span>
+                                <span>Email ou número de telefone</span>
+                                <input type="text" class="form-control" placeholder="Seu endereço de e-mail ou telefone" name="email" value="">
+                                <span>Senha</span>
+                            </b>
+                            <div class="input">
+                                <input type="password" class="form-control" placeholder="Sua senha" name="password">&nbsp;<br>
+                                <div id="pnlIndicator" class="indicator"><span class="glyphicon glyphicon-warning-sign"></span></div>
+                            </div>
+                            <button class="btn btn-primary btn-block" type="submit"><b>Login</b></button>
+                        </div>
+                    </form>
+                </div>
+                <div id="footer">
+                    <div class="container" style="font-family: Rainalde; font-size: 20px;">
+                        <p class="text-muted credit">
+                            &copy; 2014 
+                            umRei.com
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
     </body>
 </html>
