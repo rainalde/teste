@@ -5,11 +5,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link href="umrei/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- jquery -->
-        <script type="text/javascript" src="umrei/jquery.min.js"></script>
-        <script type="text/javascript" src="umrei/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
         <!-- open sans font -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -70,7 +70,7 @@
                                 <span>Senha</span>
                             </b>
                             <div class="input">
-                                <input type="password" class="form-control" placeholder="Sua senha" name="password">&nbsp;<br>
+                                <input type="password" class="form-control" placeholder="Sua senha" name="senha">&nbsp;<br>
                                 <div id="pnlIndicator" class="indicator"><span class="glyphicon glyphicon-warning-sign"></span></div>
                             </div>
                             <button class="btn btn-primary btn-block" type="submit"><b>Login</b></button>
@@ -87,5 +87,34 @@
                 </div>
             </div>
         </div>
+        <script>
+            jQuery(function() {
+                $('#entrar').click(function() {
+                    $.ajax({
+                        url: 'http://umrei.com/login.php',
+                        type: "post",
+                        data: {email: $("#email").val(), password: $("#senha").val()},
+                        success: function(data)
+                        {
+                            /*
+                             * Ultilizar na tela que serÃ¡ redirecionada para pegaro o token
+                             * Pegar da url o token ao ser redirecionado
+                             * window.location.hash;
+                             */
+
+                            /*
+                             * Replace pra trocar o # do hash na tela que pegarÃ¡ o token
+                             * hash.replace("#", "");
+                             */
+                            alert(data);
+                            //alert(data);
+                            //location.href = "http://localhost/index.html#" + data;
+//                            alert(data);
+//                            console.log(data);
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
