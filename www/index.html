@@ -31,6 +31,7 @@
         <script>
             jQuery(function() {
                 $('#entrar').click(function() {
+                    $("#msg").append(+" / ");
                     $.ajax({
                         url: 'http://umrei.com/login.php',
                         type: "post",
