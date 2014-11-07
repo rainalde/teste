@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="pt">
     <head>
-        <title>umRei</title>
+        <title>umRei - Logado</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,12 +11,6 @@
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
-        <!-- open sans font -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-        <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
         <style>
             html, body { height: 100%; }
             #wrap { min-height: 100%; height: auto; margin: 0 auto -60px; padding: 10px 0 0px; text-align: center; }
@@ -56,64 +50,14 @@
     <body>
         <div id="wrap" style="font-family: Rainalde; font-size: 16px;">
             <div class="container">
-                <div class="banner">
-                    <img class="logo" src="umrei/logo.png" style="width: 250px;"/>
-                </div>
-                <div class="box">
-                    <!--<form id="form" class="form-signin" action="index.php" method="post">-->
-                        <div class="content-wrap">
-                            <img class="profile-img" alt="" src="umrei/foursquare2.png">
-                            <b>
-                                <span><font color="red"><small></small></font><br><br></span>
-                                <span>Email ou número de telefone</span>
-                                <input type="text" class="form-control" placeholder="Seu endereço de e-mail ou telefone" name="email" value="">
-                                <span>Senha</span>
-                            </b>
-                            <div class="input">
-                                <input type="password" class="form-control" placeholder="Sua senha" name="senha">&nbsp;<br>
-                                <div id="pnlIndicator" class="indicator"><span class="glyphicon glyphicon-warning-sign"></span></div>
-                            </div>
-                            <button class="btn btn-primary btn-block" id="entrar" type="submit"><b>Login</b></button>
-                        </div>
-                    <!--</form>-->
-                </div>
-                <div id="footer">
-                    <div class="container" style="font-family: Rainalde; font-size: 20px;">
-                        <p class="text-muted credit">
-                            &copy; 2014 
-                            umRei.com
-                        </p>
-                    </div>
-                </div>
+                <div id="msg"></div>
             </div>
         </div>
         <script>
             jQuery(function() {
-                $('#entrar').click(function() {
-                    $.ajax({
-                        url: 'http://umrei.com/login.php',
-                        type: "post",
-                        data: {email: $("#email").val(), password: $("#senha").val()},
-                        success: function(data)
-                        {
-                            /*
-                             * Ultilizar na tela que serÃ¡ redirecionada para pegaro o token
-                             * Pegar da url o token ao ser redirecionado
-                             * window.location.hash;
-                             */
-
-                            /*
-                             * Replace pra trocar o # do hash na tela que pegarÃ¡ o token
-                             * hash.replace("#", "");
-                             */
-                            alert(data);
-                            //alert(data);
-                            //location.href = "http://localhost/index.html#" + data;
-//                            alert(data);
-//                            console.log(data);
-                        }
-                    });
-                });
+                var hash_token = window.location.hash;
+                var token = hash_token.replace("#", "");
+                $("#msg").append(token);
             });
         </script>
     </body>

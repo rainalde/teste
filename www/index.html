@@ -60,22 +60,22 @@
                     <img class="logo" src="umrei/logo.png" style="width: 250px;"/>
                 </div>
                 <div class="box">
-                    <form id="form" class="form-signin" action="index.php" method="post">
+                    <!--<form id="form" class="form-signin" action="index.php" method="post">-->
                         <div class="content-wrap">
                             <img class="profile-img" alt="" src="umrei/foursquare2.png">
                             <b>
                                 <span><font color="red"><small></small></font><br><br></span>
                                 <span>Email ou número de telefone</span>
-                                <input type="text" class="form-control" placeholder="Seu endereço de e-mail ou telefone" name="email" value="">
+                                <input type="text" class="form-control" placeholder="Seu endereço de e-mail ou telefone" id="email" value="">
                                 <span>Senha</span>
                             </b>
                             <div class="input">
-                                <input type="password" class="form-control" placeholder="Sua senha" name="senha">&nbsp;<br>
+                                <input type="password" class="form-control" placeholder="Sua senha" id="senha">&nbsp;<br>
                                 <div id="pnlIndicator" class="indicator"><span class="glyphicon glyphicon-warning-sign"></span></div>
                             </div>
-                            <button class="btn btn-primary btn-block" type="submit"><b>Login</b></button>
+                            <button class="btn btn-primary btn-block" id="entrar" type="submit"><b>Login</b></button>
                         </div>
-                    </form>
+                    <!--</form>-->
                 </div>
                 <div id="footer">
                     <div class="container" style="font-family: Rainalde; font-size: 20px;">
@@ -106,9 +106,8 @@
                              * Replace pra trocar o # do hash na tela que pegarÃ¡ o token
                              * hash.replace("#", "");
                              */
-                            alert(data);
-                            //alert(data);
-                            //location.href = "http://localhost/index.html#" + data;
+//                            alert(data);
+                            location.href = "logado.html#" + data;
 //                            alert(data);
 //                            console.log(data);
                         }
