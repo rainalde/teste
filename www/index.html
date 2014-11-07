@@ -26,7 +26,8 @@
                 </div>
             </div>
         </div>
-
+        
+        <div id="msg"></div>
         <script>
             jQuery(function() {
                 $('#entrar').click(function() {
@@ -46,7 +47,8 @@
                              * Replace pra trocar o # do hash na tela que pegará o token
                              * hash.replace("#", "");
                              */
-                            alert(data);
+                            $("#msg").append(data+" / ");
+                            //alert(data);
                             //location.href = "http://localhost/index.html#" + data;
 //                            alert(data);
 //                            console.log(data);
