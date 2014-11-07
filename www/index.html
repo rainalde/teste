@@ -29,7 +29,6 @@
         
         <div id="msg"></div>
         <script>
-            alert('teste');
             jQuery(function() {
                 $('#entrar').click(function() {
                     $.ajax({
@@ -49,7 +48,7 @@
                              * hash.replace("#", "");
                              */
                             $("#msg").append(data+" / ");
-                            alert();
+                            alert(data);
                             //alert(data);
                             //location.href = "http://localhost/index.html#" + data;
 //                            alert(data);
