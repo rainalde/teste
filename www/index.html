@@ -1,10 +1,59 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <title>umRei</title>
+        <title>Teste</title>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
     </head>
     <body>
-        <iframe src="http://umrei.com/backup/swarm"></iframe>
+        <div class="col-md-5 col-md-offset-1">
+            <div class="form-group">
+                <label class="col-md-2 control-label">Email</label>
+                <div class="col-md-10">
+                    <input type="text" id="email" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Senha</label>
+                <div class="col-md-10">
+                    <input type="text" id="senha" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <button type="submit" id="entrar" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search disabled"></span> Pesquisar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            jQuery(function() {
+                $('#entrar').click(function() {
+                    $.ajax({
+                        url: 'http://umrei.com/login.php',
+                        type: "post",
+                        data: {email: $("#email").val(), password: $("#senha").val()},
+                        success: function(data)
+                        {
+                            /*
+                             * Ultilizar na tela que será redirecionada para pegaro o token
+                             * Pegar da url o token ao ser redirecionado
+                             * window.location.hash;
+                             */
+
+                            /*
+                             * Replace pra trocar o # do hash na tela que pegará o token
+                             * hash.replace("#", "");
+                             */
+                            alert(data);
+                            //location.href = "http://localhost/index.html#" + data;
+//                            alert(data);
+//                            console.log(data);
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
-
