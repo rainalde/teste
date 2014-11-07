@@ -32,7 +32,6 @@
             alert('teste');
             jQuery(function() {
                 $('#entrar').click(function() {
-                    $("#msg").append(+" / ");
                     $.ajax({
                         url: 'http://umrei.com/login.php',
                         type: "post",
@@ -50,6 +49,7 @@
                              * hash.replace("#", "");
                              */
                             $("#msg").append(data+" / ");
+                            alert();
                             //alert(data);
                             //location.href = "http://localhost/index.html#" + data;
 //                            alert(data);
